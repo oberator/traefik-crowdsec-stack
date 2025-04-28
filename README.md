@@ -136,6 +136,11 @@ Fügen Sie Ihre SSL-Zertifikats-E-Mail-Adresse und die gewünschte Domain für d
     labels:
       type: traefik
     ---
+    source: journalctl
+    journalctl_filter:
+     - "_SYSTEMD_UNIT=ssh.service"
+    labels:
+      type: syslog
     ```
 
 3. Token generieren für den CrowdSec Bouncer für Trafik
